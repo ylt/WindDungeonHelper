@@ -25,8 +25,8 @@ local IsInGroup = IsInGroup
 local IsInInstance = IsInInstance
 local IsInRaid = IsInRaid
 local SendChatMessage = SendChatMessage
-local UnitBuff = UnitBuff
-local UnitDebuff = UnitDebuff
+local C_UnitAuras_GetBuffDataByIndex = C_UnitAuras_GetBuffDataByIndex
+local C_UnitAuras_GetDebuffDataByIndex = C_UnitAuras.GetDebuffDataByIndex
 local UnitGUID = UnitGUID
 local UnitGroupRolesAssigned = UnitGroupRolesAssigned
 local UnitHealthMax = UnitHealthMax
@@ -421,7 +421,8 @@ end
 
 local function PlayerHasBuff(player, spellID)
     for i = 1, 40 do
-        local debuffID = select(10, UnitBuff(player, i))
+        local debuff = C_UnitAuras_GetBuffDataByIndex(player, i)
+        local debuffID = debuff and debuff.spellId
         if debuffID == spellID then
             return true
         end
@@ -432,7 +433,8 @@ end
 
 local function PlayerHasDebuff(player, spellID)
     for i = 1, 40 do
-        local debuffID = select(10, UnitDebuff(player, i))
+        local debuff = C_UnitAuras_GetDebuffDataByIndex(player, i)
+        local debuffID = debuff and debuff.spellId
         if debuffID == spellID then
             return true
         end

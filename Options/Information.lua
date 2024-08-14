@@ -158,6 +158,16 @@ O.information = {
                         "tro-janek",
                         F.CreateClassColorString("Mhalvir @ " .. L["Burning Legion"] .. "(EU)", "SHAMAN")
                     )
+                },
+                ["3"] = {
+                    order = 3,
+                    type = "description",
+                    name = format(
+                        "%s: %s | %s",
+                        "ylt",
+                        E.InfoColor .. "Joe" .. "|r",
+                        F.CreateClassColorString("Shaype @ " .. "Draenor" .. " (EU)", "DRUID")
+                    )
                 }
             }
         },

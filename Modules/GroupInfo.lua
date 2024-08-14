@@ -6,11 +6,11 @@ local _G = _G
 local format = format
 local ipairs = ipairs
 
-local IsAddOnLoaded = IsAddOnLoaded
+local C_AddOns_IsAddOnLoaded = C.AddOns_IsAddOnLoaded
 local LibStub = LibStub
 
 local function CheckElvUIWindTools()
-	if IsAddOnLoaded("ElvUI_WindTools") then
+	if C_AddOns_IsAddOnLoaded("ElvUI_WindTools") then
 		local E = _G.ElvUI and _G.ElvUI[1]
 		if E and E.db.WT.tooltips.groupInfo.enable then
 			return true
@@ -75,7 +75,7 @@ end
 function GI:ProfileUpdate()
 	self.db = W.db.groupInfo
 
-	if IsAddOnLoaded("PremadeGroupsFilter") and self.db.enable then
+	if C_AddOns_IsAddOnLoaded("PremadeGroupsFilter") and self.db.enable then
 		F.Print(
 			format(
 				L["%s detected, %s will be disabled automatically."],
